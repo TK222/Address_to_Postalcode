@@ -1,0 +1,8 @@
+function getPostCode3(address) {
+  var api_url = "https://maps.googleapis.com/maps/api/geocode/json?key= [API KEY] &address=" + encodeURI(address);
+  var response = UrlFetchApp.fetch(api_url);
+  var result = JSON.parse(response);
+  var address_components = result['results'][0]['address_components'];
+  
+  return address_components ['short_name'];
+}
